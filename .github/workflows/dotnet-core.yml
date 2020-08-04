@@ -1,0 +1,31 @@
+name: Build and Publish WindowsAPICodePack
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore .\source\WindowsAPICodePack\WindowsAPICodePack.sln
+    - name: Publish WindowsAPICodePack
+      uses: brandedoutcast/publish-nuget@v2.5.2
+      with:
+          PROJECT_FILE_PATH: .\source\WindowsAPICodePack\Core\Core.csproj
+          NUGET_KEY: ${{secrets.WINDOWS_API_CODEPACK_NUGET_API_KEY}}
+    - name: Publish WindowsAPICodePack.Shell
+      uses: brandedoutcast/publish-nuget@v2.5.2
+      with:
+          PROJECT_FILE_PATH: .\source\WindowsAPICodePack\Shell\Shell.csproj
+          NUGET_KEY: ${{secrets.WINDOWS_API_CODEPACK_NUGET_API_KEY}}
