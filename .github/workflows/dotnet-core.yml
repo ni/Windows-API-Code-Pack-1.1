@@ -15,6 +15,8 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
+    - name: Install dependencies Core
+      run: dotnet restore	./source/WindowsAPICodePack/Core/Core.csproj
     - name: Build
       run: dotnet build --configuration Release --no-restore ./source/WindowsAPICodePack/WindowsAPICodePack.sln
     - name: Publish WindowsAPICodePack
