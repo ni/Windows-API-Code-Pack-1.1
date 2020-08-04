@@ -22,10 +22,10 @@ jobs:
     - name: Publish WindowsAPICodePack
       uses: brandedoutcast/publish-nuget@v2.5.2
       with:
-          PROJECT_FILE_PATH: ..\..\source\WindowsAPICodePack\Core\Core.csproj
+          PROJECT_FILE_PATH: .\source\WindowsAPICodePack\Core\Core.csproj
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
     - name: Publish WindowsAPICodePack.Shell
       uses: brandedoutcast/publish-nuget@v2.5.2
       with:
-          PROJECT_FILE_PATH: ..\..\source\WindowsAPICodePack\Shell\Shell.csproj
+          PROJECT_FILE_PATH: .\source\WindowsAPICodePack\Shell\Shell.csproj
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
