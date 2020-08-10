@@ -7,7 +7,7 @@
     <Title>$(AssemblyName)</Title>
     <Authors>lnowotny;jmeyer</Authors>
     <Company>NI</Company>
-    <Product>Microsoft Windows API Code Pack for .NET Framework</Product>
+    <Product>NI fork of Microsoft Windows API Code Pack for .NET Framework</Product>
     <PackageLicenseUrl>https://github.com/ni/Windows-API-Code-Pack-1.1/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/ni/Windows-API-Code-Pack-1.1</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
