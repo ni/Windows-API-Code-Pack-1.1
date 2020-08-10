@@ -2,18 +2,18 @@
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <AssemblyName>Microsoft.WindowsAPICodePack.ExtendedLinguisticServices</AssemblyName>
-    <PackageId>Microsoft-WindowsAPICodePack-ExtendedLinguisticServices</PackageId>
+    <PackageId>NationalInstruments-Microsoft.WindowsAPICodePack.ExtendedLinguisticServices</PackageId>
     <VersionPrefix>1.1.4</VersionPrefix>
     <Title>$(AssemblyName)</Title>
     <Authors>lnowotny;jmeyer</Authors>
-    <Company>Microsoft</Company>
+    <Company>NI</Company>
     <Product>Microsoft Windows API Code Pack for .NET Framework</Product>
     <PackageLicenseUrl>https://github.com/ni/Windows-API-Code-Pack-1.1/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/ni/Windows-API-Code-Pack-1.1</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>The Extended Linguistic Services code for the WindowsAPICodePack. This is an updated version containing all available bug fixes for this code as of 2019-10-18.</Description>
     <PackageReleaseNotes>See CHANGELOG.md in project site. https://github.com/ni/Windows-API-Code-Pack-1.1/blob/master/CHANGELOG.md </PackageReleaseNotes>
-    <Copyright>Copyright © 2020</Copyright>
+    <Copyright>© National Instruments Corporation 2020</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>WindowsAPICodePack</PackageTags>
     <IncludeSymbols>true</IncludeSymbols>
@@ -23,8 +23,6 @@
     <LangVersion>latest</LangVersion>
     <RootNamespace>Microsoft.WindowsAPICodePack.ExtendedLinguisticServices</RootNamespace>
     <DocumentationFile>..\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>ProjectSignKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
