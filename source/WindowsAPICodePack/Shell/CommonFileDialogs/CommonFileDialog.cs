@@ -855,6 +855,8 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
         {
             Debug.Assert(dialog != null, "No dialog instance to configure");
 
+            ApplyCustomNativeSettings(dialog);
+
             if (parentWindow == IntPtr.Zero)
             {
                 if (System.Windows.Application.Current != null && System.Windows.Application.Current.MainWindow != null)
@@ -1195,5 +1197,45 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
 
             public void OnTypeChange(IFileDialog pfd) => parent.OnFileTypeChanged(EventArgs.Empty);
         }
+
+        #region custom public API and behavior
+
+        private string okButtonLabel;
+        public string OkButtonLabel
+        {
+            get { return okButtonLabel; }
+            set
+            {
+                okButtonLabel = value;
+                if (NativeDialogShowing)
+                {
+                    nativeDialog.SetTitle(value);
+                }
+            }
+        }
+
+        public void Close(bool success)
+        {
+            if (NativeDialogShowing)
+            {
+                nativeDialog.Close(success ? (int)HResult.Ok : (int)HResult.Canceled);
+            }
+        }
+
+        public string GetFolder()
+        {
+            IShellItem folder;
+            nativeDialog.GetFolder(out folder);
+            return ShellHelper.GetParsingName(folder);
+        }
+
+        private void ApplyCustomNativeSettings(IFileDialog dialog)
+        {
+            if (okButtonLabel != null) { dialog.SetOkButtonLabel(okButtonLabel); }
+        }
+
+        public abstract string[] GetFileNames();
+
+        #endregion
     }
 }

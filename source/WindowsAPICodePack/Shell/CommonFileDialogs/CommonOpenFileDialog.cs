@@ -238,5 +238,26 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
                 items.Add(GetShellItemAt(resultsArray, i));
             }
         }
+
+        #region custom public API
+
+        public override string[] GetFileNames()
+        {
+            IShellItemArray resultsArray;
+            uint count;
+
+            openDialogCoClass.GetResults(out resultsArray);
+            resultsArray.GetCount(out count);
+
+            string[] names = new string[count];
+            for (int i = 0; i < count; i++)
+            {
+                names[i] = (GetFileNameFromShellItem(GetShellItemAt(resultsArray, i)));
+            }
+
+            return names;
+        }
+
+        #endregion
     }
 }
