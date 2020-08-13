@@ -265,5 +265,22 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             items.Clear();
             items.Add(item);
         }
+
+        #region custom public API
+
+        public override string[] GetFileNames()
+        {
+            IShellItem item;
+            saveDialogCoClass.GetResult(out item);
+
+            if (item == null)
+            {
+                throw new InvalidOperationException(LocalizedMessages.SaveFileNullItem);
+            }
+
+            return new string[] { GetFileNameFromShellItem(item) };
+        }
+
+        #endregion
     }
 }

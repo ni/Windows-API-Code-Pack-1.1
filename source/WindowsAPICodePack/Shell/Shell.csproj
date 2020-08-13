@@ -2,8 +2,8 @@
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <AssemblyName>Microsoft.WindowsAPICodePack.Shell</AssemblyName>
-    <PackageId>NationalInstruments-Microsoft.WindowsAPICodePack.Shell</PackageId>
-    <VersionPrefix>1.1.4</VersionPrefix>
+    <PackageId>NationalInstruments.Microsoft.WindowsAPICodePack.Shell</PackageId>
+    <VersionPrefix>1.1.6</VersionPrefix>
     <Title>$(AssemblyName)</Title>
     <Authors>lnowotny;jmeyer</Authors>
     <Company>NI</Company>
