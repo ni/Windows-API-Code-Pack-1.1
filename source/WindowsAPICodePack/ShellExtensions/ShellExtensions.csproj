@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <AssemblyName>Microsoft.WindowsAPICodePack.ShellExtensions</AssemblyName>
-    <PackageId>NI-Microsoft.WindowsAPICodePack.ShellExtensions</PackageId>
+    <PackageId>NationalInstruments.Microsoft.WindowsAPICodePack.ShellExtensions</PackageId>
     <VersionPrefix>1.1.4</VersionPrefix>
     <Title>$(AssemblyName)</Title>
     <Authors>lnowotny;jmeyer</Authors>

@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <AssemblyName>Microsoft.WindowsAPICodePack.Sensors</AssemblyName>
-    <PackageId>NationalInstruments-Microsoft.WindowsAPICodePack.Sensors</PackageId>
+    <PackageId>NationalInstruments.Microsoft.WindowsAPICodePack.Sensors</PackageId>
     <VersionPrefix>1.1.4</VersionPrefix>
     <Title>$(AssemblyName)</Title>
     <Authors>lnowotny;jmeyer</Authors>
