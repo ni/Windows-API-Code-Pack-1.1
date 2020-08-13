@@ -13,7 +13,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
 {
     /// <summary>Creates a Vista or Windows 7 Common File Dialog, allowing the user to select the filename and location for a saved file.</summary>
     /// <permission cref="System.Security.Permissions.FileDialogPermission">to save a file. Associated enumeration: <see cref="System.Security.Permissions.SecurityAction.LinkDemand"/>.</permission>
-    public sealed partial class CommonSaveFileDialog : CommonFileDialog
+    public sealed class CommonSaveFileDialog : CommonFileDialog
     {
         private bool alwaysAppendDefaultExtension;
         private bool createPrompt;
