@@ -278,21 +278,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
                     throw new InvalidOperationException(LocalizedMessages.CommonFileDialogMultipleFiles);
                 }
 
-                var returnFilename = filenames[0];
-
-                if(this is CommonSaveFileDialog)
-                {
-                    returnFilename = System.IO.Path.ChangeExtension(returnFilename, this.filters[this.SelectedFileTypeIndex - 1].Extensions[0]);
-                }
-
-                // "If extension is a null reference (Nothing in Visual Basic), the returned string contains the specified path with its
-                // extension removed." Since we do not want to remove any existing extension, make sure the DefaultExtension property is NOT null.
-
-                // if we should, and there is one to set...
-                if (!string.IsNullOrEmpty(DefaultExtension))
-                {
-                    returnFilename = System.IO.Path.ChangeExtension(returnFilename, DefaultExtension);
-                }
+                string returnFilename = filenames[0];
 
                 return returnFilename;
             }
