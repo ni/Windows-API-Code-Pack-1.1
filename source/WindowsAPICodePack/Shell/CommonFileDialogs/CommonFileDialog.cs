@@ -278,9 +278,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
                     throw new InvalidOperationException(LocalizedMessages.CommonFileDialogMultipleFiles);
                 }
 
-                string returnFilename = filenames[0];
-
-                return returnFilename;
+                return filenames[0];
             }
         }
 
