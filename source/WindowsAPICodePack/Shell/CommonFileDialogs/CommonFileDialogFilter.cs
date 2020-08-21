@@ -84,6 +84,21 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             set => showExtensions = value;
         }
 
+        private static string NormalizeExtension(string rawExtension)
+        {
+            rawExtension = rawExtension.Trim();
+            rawExtension = rawExtension.Replace("*.", null);
+
+            //remove only the first dot so multi-dotted extensions work	
+            int indexOfDot = rawExtension.IndexOf('.');
+            if (indexOfDot != -1)
+            {
+                rawExtension = rawExtension.Remove(indexOfDot, 1);
+            }
+
+            return rawExtension;
+        }
+
         /// <summary>Returns a string representation for this filter that includes the display name and the list of extensions.</summary>
         /// <returns>A <see cref="System.String"/>.</returns>
         public override string ToString() => string.Format(System.Globalization.CultureInfo.InvariantCulture,
@@ -117,21 +132,6 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             }
 
             return extensionList.ToString();
-        }
-
-        private static string NormalizeExtension(string rawExtension)
-        {
-            rawExtension = rawExtension.Trim();
-            rawExtension = rawExtension.Replace("*.", null);
-
-            //remove only the first dot so multi-dotted extensions work
-            int indexOfDot = rawExtension.IndexOf('.');
-            if (indexOfDot != -1)
-            {
-                rawExtension.Remove(indexOfDot);
-            }
-
-            return rawExtension;
         }
     }
 }
