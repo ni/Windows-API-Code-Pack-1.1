@@ -23,5 +23,5 @@ jobs:
       with:
         name: nuget-artifacts
         path:
-          ${{ github.workspace }}\source\WindowsAPICodePack\Core\bin\Release
-          ${{ github.workspace }}\source\WindowsAPICodePack\Shell\bin\Release
+          ${{ github.workspace }}\source\WindowsAPICodePack\Core\bin\Release\
+          ${{ github.workspace }}\source\WindowsAPICodePack\Shell\bin\Release\
