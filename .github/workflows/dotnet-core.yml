@@ -22,7 +22,7 @@ jobs:
       env:
         AUTH: ${{ secrets.WINDOWS_API_CODEPACK_ENCODED_KEY }}
       run: |
-        echo "%$AUTH" > mykey.txt
+        echo "%AUTH%" > mykey.txt
         set /p var=<mykey.txt
         echo %var%
         certutil -decode mykey.txt .\source\WindowsAPICodePack\NationalInstruments.snk
