@@ -19,3 +19,7 @@ jobs:
       run: dotnet restore .\source\WindowsAPICodePack\WindowsAPICodePack.sln
     - name: Build
       run: dotnet build --configuration Release --no-restore .\source\WindowsAPICodePack\WindowsAPICodePack.sln
+    - uses: actions/upload-artifact@v2
+      with:
+        name: WindowsAPICodePack.Shell-artifact
+        path: ${{ github.workspace }}\source\WindowsAPICodePack\Shell\bin\Release\*.nupkg
