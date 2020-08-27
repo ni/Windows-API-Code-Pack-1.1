@@ -17,6 +17,8 @@ jobs:
         dotnet-version: 3.1.301
     - name: Install dependencies
       run: dotnet restore .\source\WindowsAPICodePack\WindowsAPICodePack.sln
+    - name: Generate signing key
+      run: certutil -decode ${{ secrets.WINDOWS_API_CODEPACK_ENCODED_KEY }} .\source\WindowsAPICodePack\NationalInstruments.snk
     - name: Build
       run: dotnet build --configuration Release --no-restore .\source\WindowsAPICodePack\WindowsAPICodePack.sln
     - uses: actions/upload-artifact@v2
