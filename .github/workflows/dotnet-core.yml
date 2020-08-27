@@ -21,8 +21,8 @@ jobs:
       env:
         AUTH: ${{ secrets.WINDOWS_API_CODEPACK_ENCODED_KEY }}
       run: |
-        Set-Content mykey.txt $env:AUTH
-        certutil -decode mykey.txt .\source\WindowsAPICodePack\NationalInstruments.snk
+        Set-Content NI_StrongKey.txt $env:AUTH
+        certutil -decode NI_StrongKey.txt .\source\WindowsAPICodePack\NationalInstruments.snk
     - name: Build
       run: dotnet build --configuration Release --no-restore .\source\WindowsAPICodePack\WindowsAPICodePack.sln
     - uses: actions/upload-artifact@v2
