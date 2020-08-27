@@ -22,7 +22,9 @@ jobs:
       env:
         AUTH: ${{ secrets.WINDOWS_API_CODEPACK_ENCODED_KEY }}
       run: |
-        certutil -decode %AUTH% .\source\WindowsAPICodePack\NationalInstruments.snk
+        type "%AUTH%" > mykey.txt
+        set /p var=<mykey.txt
+        echo %var%        
     - name: Build
       run: dotnet build --configuration Release --no-restore .\source\WindowsAPICodePack\WindowsAPICodePack.sln
     - uses: actions/upload-artifact@v2
