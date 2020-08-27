@@ -23,6 +23,9 @@
     <LangVersion>latest</LangVersion>
     <RootNamespace>Microsoft.WindowsAPICodePack.ExtendedLinguisticServices</RootNamespace>
     <DocumentationFile>..\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\NationalInstruments.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
