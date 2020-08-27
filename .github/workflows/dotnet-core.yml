@@ -20,7 +20,7 @@ jobs:
     - name: Generate signing key
       env:
         AUTH: ${{ secrets.WINDOWS_API_CODEPACK_ENCODED_KEY }}
-      run: certutil -decode "%AUTH%" .\source\WindowsAPICodePack\NationalInstruments.snk
+      run: certutil -decode "$env:AUTH" .\source\WindowsAPICodePack\NationalInstruments.snk
     - name: Build
       run: dotnet build --configuration Release --no-restore .\source\WindowsAPICodePack\WindowsAPICodePack.sln
     - uses: actions/upload-artifact@v2
