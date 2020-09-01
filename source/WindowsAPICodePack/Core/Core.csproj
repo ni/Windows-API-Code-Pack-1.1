@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>Microsoft.WindowsAPICodePack</AssemblyName>
     <PackageId>NationalInstruments.Microsoft.WindowsAPICodePack.Core</PackageId>
-    <VersionPrefix>1.1.5</VersionPrefix>
+    <VersionPrefix>1.1.6</VersionPrefix>
     <Title>$(AssemblyName)</Title>
     <Authors>lnowotny;jmeyer</Authors>
     <Owners>nationalinstruments</Owners>
