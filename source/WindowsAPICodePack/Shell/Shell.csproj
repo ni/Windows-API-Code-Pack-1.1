@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>Microsoft.WindowsAPICodePack.Shell</AssemblyName>
     <PackageId>NationalInstruments.Microsoft.WindowsAPICodePack.Shell</PackageId>
-    <VersionPrefix>1.1.8</VersionPrefix>
+    <VersionPrefix>1.1.9</VersionPrefix>
     <Title>$(AssemblyName)</Title>
     <Authors>lnowotny;jmeyer</Authors>
     <Company>NI</Company>
