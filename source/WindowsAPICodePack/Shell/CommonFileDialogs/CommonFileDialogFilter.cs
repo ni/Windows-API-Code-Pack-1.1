@@ -79,6 +79,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
         /// <summary>Gets a collection of the individual extensions described by this filter.</summary>
         public Collection<string> Extensions => extensions;
 
+        /// <summary>Gets a collection of the individual patterns described by this filter.</summary>
         public Collection<string> Patterns => patterns;
 
         /// <summary>Gets or sets a value that controls whether the extensions are displayed.</summary>
@@ -114,7 +115,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
         /// <returns>Filter specification for this filter</returns>
         internal ShellNativeMethods.FilterSpec GetFilterSpec()
         {
-            StringBuilder filterList = new StringBuilder();
+            var filterList = new StringBuilder();
             foreach (var extension in extensions)
             {
                 if (filterList.Length > 0) 
