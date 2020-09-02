@@ -13,12 +13,17 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
         // We'll keep a parsed list of separate extensions and rebuild as needed.
 
         private readonly Collection<string> extensions;
+        private readonly Collection<string> patterns;
         private string rawDisplayName;
 
         private bool showExtensions = true;
 
         /// <summary>Creates a new instance of this class.</summary>
-        public CommonFileDialogFilter() => extensions = new Collection<string>();
+        public CommonFileDialogFilter()
+        {
+            extensions = new Collection<string>();
+            patterns = new Collection<string>();
+        }        
 
         /// <summary>Creates a new instance of this class with the specified display name and file extension list.</summary>
         /// <param name="rawDisplayName">The name of this filter.</param>
@@ -55,10 +60,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             {
                 if (showExtensions)
                 {
-                    return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-                        "{0} ({1})",
-                        rawDisplayName,
-                        CommonFileDialogFilter.GetDisplayExtensionList(extensions));
+                    return string.Format(System.Globalization.CultureInfo.InvariantCulture, rawDisplayName);
                 }
 
                 return rawDisplayName;
@@ -76,6 +78,9 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
 
         /// <summary>Gets a collection of the individual extensions described by this filter.</summary>
         public Collection<string> Extensions => extensions;
+
+        /// <summary>Gets a collection of the individual patterns described by this filter.</summary>
+        public Collection<string> Patterns => patterns;
 
         /// <summary>Gets or sets a value that controls whether the extensions are displayed.</summary>
         public bool ShowExtensions
@@ -104,7 +109,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
         public override string ToString() => string.Format(System.Globalization.CultureInfo.InvariantCulture,
                 "{0} ({1})",
                 rawDisplayName,
-                CommonFileDialogFilter.GetDisplayExtensionList(extensions));
+                GetDisplayExtensionList() + (extensions.Count > 0 ? ", " : "" ) + GetDisplayPatternList());
 
         /// <summary>Internal helper that generates a single filter specification for this filter, used by the COM API.</summary>
         /// <returns>Filter specification for this filter</returns>
@@ -113,15 +118,27 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             var filterList = new StringBuilder();
             foreach (var extension in extensions)
             {
-                if (filterList.Length > 0) { filterList.Append(";"); }
+                if (filterList.Length > 0) 
+                { 
+                    filterList.Append(";"); 
+                }
 
                 filterList.Append("*.");
                 filterList.Append(extension);
             }
+
+            foreach (string pattern in patterns)
+            {
+                if (filterList.Length > 0)
+                {
+                    filterList.Append(";");
+                }
+                filterList.Append(pattern);
+            }
             return new ShellNativeMethods.FilterSpec(DisplayName, filterList.ToString());
         }
 
-        private static string GetDisplayExtensionList(Collection<string> extensions)
+        private string GetDisplayExtensionList()
         {
             var extensionList = new StringBuilder();
             foreach (var extension in extensions)
@@ -132,6 +149,21 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             }
 
             return extensionList.ToString();
+        }
+
+        private string GetDisplayPatternList()
+        {
+            var patternList = new StringBuilder();
+            foreach (var pattern in patterns)
+            {
+                if (patternList.Length > 0) 
+                { 
+                    patternList.Append(", ");
+                }
+                patternList.Append(pattern);
+            }
+
+            return patternList.ToString();
         }
     }
 }
